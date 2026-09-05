@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="crystalGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#3b82f6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="facetCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a5f3fc" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="facetBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="facetDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <linearGradient id="facetLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#bae6fd" />
+    </linearGradient>
+    <filter id="crystalBloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="230" fill="url(#crystalGlow)" />
+
+  <g filter="url(#crystalBloom)" stroke="#e0f2fe" stroke-width="2" stroke-linejoin="round">
+    <!-- Top Crown Facets -->
+    <polygon points="256,70 170,160 256,190" fill="url(#facetLight)" />
+    <polygon points="256,70 256,190 342,160" fill="url(#facetCyan)" />
+    <polygon points="170,160 110,210 180,240 256,190" fill="url(#facetBlue)" />
+    <polygon points="342,160 256,190 332,240 402,210" fill="url(#facetCyan)" />
+
+    <!-- Center Belt -->
+    <polygon points="180,240 256,190 332,240 256,280" fill="url(#facetLight)" opacity="0.9" />
+    <polygon points="110,210 180,240 160,330 90,300" fill="url(#facetDeep)" />
+    <polygon points="402,210 332,240 352,330 422,300" fill="url(#facetBlue)" />
+
+    <!-- Lower Pavilion Pyramids -->
+    <polygon points="180,240 256,280 256,442 160,330" fill="url(#facetBlue)" />
+    <polygon points="332,240 256,280 256,442 352,330" fill="url(#facetCyan)" />
+    <polygon points="90,300 160,330 256,442 200,455" fill="url(#facetDeep)" />
+    <polygon points="422,300 352,330 256,442 312,455" fill="url(#facetBlue)" />
+  </g>
+
+  <!-- Sparkles -->
+  <circle cx="160" cy="120" r="5" fill="#fff" filter="url(#crystalBloom)" />
+  <circle cx="370" cy="140" r="4" fill="#fff" filter="url(#crystalBloom)" />
+  <circle cx="256" cy="190" r="6" fill="#fff" filter="url(#crystalBloom)" />
+  <circle cx="340" cy="380" r="4" fill="#fff" filter="url(#crystalBloom)" />
+</svg>

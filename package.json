@@ -1,0 +1,101 @@
+{
+  "name": "react-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build:server": "esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "vite build && npm run build:server",
+    "electron:dev": "npm run build:server && electron electron/main.cjs",
+    "electron:build": "npm run build:server && electron-builder --win",
+    "electron:build:portable": "npm run build:server && electron-builder --win portable",
+    "electron:build:nsis": "npm run build:server && electron-builder --win nsis",
+    "start": "node dist/server.cjs",
+    "clean": "rm -rf dist server.js release",
+    "lint": "tsc --noEmit"
+  },
+  "build": {
+    "appId": "com.vesperchat.app",
+    "productName": "VesperChat",
+    "icon": "public/icon-512.png",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "public/**/*",
+      "server/**/*",
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/sql.js/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon-512.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "VesperChat"
+    },
+    "portable": {
+      "artifactName": "VesperChat-Portable.exe"
+    }
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "firebase": "^12.18.0",
+    "firebase-admin": "^14.3.0",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "nodemailer": "^9.0.3",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "sql.js": "^1.14.2",
+    "vite": "^6.2.3",
+    "web-push": "^3.6.7",
+    "ws": "^8.21.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/nodemailer": "^8.0.1",
+    "@types/sql.js": "^1.4.11",
+    "@types/web-push": "^3.6.4",
+    "@types/ws": "^8.18.1",
+    "autoprefixer": "^10.4.21",
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.25.0",
+    "png-to-ico": "^3.0.2",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  }
+}

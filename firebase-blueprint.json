@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "users": {
+      "collectionName": "users",
+      "description": "VesperChat registered user accounts with profile data and settings",
+      "fields": {
+        "username": { "type": "string", "description": "Primary username handle" },
+        "nickname": { "type": "string", "description": "Display nickname" },
+        "password": { "type": "string", "description": "User account password" },
+        "color": { "type": "string", "description": "Avatar background color" },
+        "avatarUrl": { "type": "string", "description": "Avatar photo URL" },
+        "bannerUrl": { "type": "string", "description": "Profile banner URL" },
+        "bio": { "type": "string", "description": "User bio status" },
+        "statusText": { "type": "string", "description": "Custom status message" },
+        "email": { "type": "string", "description": "Registered email" },
+        "createdAt": { "type": "string", "description": "Creation ISO date" },
+        "dmContacts": { "type": "array", "description": "List of direct message contacts" },
+        "isVip": { "type": "boolean", "description": "VIP status" },
+        "neons": { "type": "number", "description": "Neon coin balance" },
+        "walletTransactions": { "type": "array", "description": "Wallet history" },
+        "gifts": { "type": "array", "description": "Received gifts" }
+      }
+    },
+    "rooms": {
+      "collectionName": "rooms",
+      "description": "Chat channels, group chats, and direct message rooms",
+      "fields": {
+        "name": { "type": "string", "description": "Room identifier" },
+        "isDM": { "type": "boolean", "description": "Whether room is direct message" },
+        "isGroup": { "type": "boolean", "description": "Whether room is a group chat" },
+        "isAnnouncement": { "type": "boolean", "description": "Whether room is announcement channel" },
+        "owner": { "type": "string", "description": "Owner username" },
+        "admins": { "type": "array", "description": "Admin usernames" },
+        "members": { "type": "array", "description": "Member usernames" },
+        "description": { "type": "string", "description": "Room description" },
+        "history": { "type": "array", "description": "Recent messages list" }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "VesperChat",
+  "description": "Защищенный игровой мессенджер с голосовыми звонками, чатами, историями, опросниками и поддержкой WebAPK.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

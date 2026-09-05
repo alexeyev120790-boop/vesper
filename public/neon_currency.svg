@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Canvas Ambient Radial -->
+    <radialGradient id="bgAmbient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#140b22" />
+      <stop offset="60%" stop-color="#090511" />
+      <stop offset="100%" stop-color="#030106" />
+    </radialGradient>
+
+    <!-- Multi-stage Glow Filters -->
+    <filter id="coreGlowBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="blurBig" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blurMed" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blurSharp" />
+      <feMerge>
+        <feMergeNode in="blurBig" />
+        <feMergeNode in="blurMed" />
+        <feMergeNode in="blurSharp" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="cyanNeonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="glow" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="sharp" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="glow" />
+        <feMergeNode in="sharp" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="greenNeonGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="glow" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="sharp" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="glow" />
+        <feMergeNode in="sharp" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Plasma Nucleus Radiant Gradient -->
+    <radialGradient id="hotNucleusGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="20%" stop-color="#fffbeb" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="65%" stop-color="#f43f5e" />
+      <stop offset="85%" stop-color="#d946ef" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Glowing Blue Track Gradient -->
+    <linearGradient id="neonBlueTrack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="40%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Glowing Green Track Gradient -->
+    <linearGradient id="neonGreenTrack" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#86efac" />
+      <stop offset="40%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#15803d" />
+    </linearGradient>
+
+    <!-- Spherical Electron Gradient -->
+    <radialGradient id="sphereBlueNode" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#38bdf8" />
+      <stop offset="85%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0c4a6e" />
+    </radialGradient>
+
+    <radialGradient id="sphereGreenNode" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#4ade80" />
+      <stop offset="85%" stop-color="#16a34a" />
+      <stop offset="100%" stop-color="#14532d" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base Disc -->
+  <circle cx="256" cy="256" r="250" fill="url(#bgAmbient)" />
+
+  <!-- Outer Spherical Chrome Ring Base -->
+  <circle cx="256" cy="256" r="198" fill="none" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2.5" />
+  <circle cx="256" cy="256" r="196" fill="none" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1" />
+
+  <!-- Thin Vertical Ring -->
+  <ellipse cx="256" cy="256" rx="55" ry="192" fill="none" stroke="#00f0ff" stroke-width="2.5" opacity="0.65" filter="url(#cyanNeonGlow)" />
+  <ellipse cx="256" cy="256" rx="55" ry="192" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.8" />
+
+  <!-- Soft Orange Tilted Halo Track Behind -->
+  <ellipse cx="256" cy="256" rx="145" ry="38" fill="none" stroke="#f97316" stroke-width="2" transform="rotate(-20 256 256)" opacity="0.5" filter="url(#coreGlowBloom)" />
+
+  <!-- DIAGONAL 1: CYAN NEON ORBIT (tilted -38 deg) -->
+  <g transform="rotate(-38 256 256)">
+    <!-- Outer Glow Tube -->
+    <ellipse cx="256" cy="256" rx="88" ry="194" fill="none" stroke="url(#neonBlueTrack)" stroke-width="7" filter="url(#cyanNeonGlow)" />
+    <!-- Bright Center Filament Core -->
+    <ellipse cx="256" cy="256" rx="88" ry="194" fill="none" stroke="#ffffff" stroke-width="2.5" />
+    
+    <!-- Spherical Electron Nodes on Cyan Track -->
+    <!-- Top Electron -->
+    <circle cx="256" cy="62" r="15" fill="url(#sphereBlueNode)" filter="url(#cyanNeonGlow)" />
+    <circle cx="256" cy="62" r="14" fill="none" stroke="#e0f2fe" stroke-width="1.5" />
+    <circle cx="252" cy="58" r="4" fill="#ffffff" />
+
+    <!-- Bottom Electron -->
+    <circle cx="256" cy="450" r="15" fill="url(#sphereBlueNode)" filter="url(#cyanNeonGlow)" />
+    <circle cx="256" cy="450" r="14" fill="none" stroke="#e0f2fe" stroke-width="1.5" />
+    <circle cx="252" cy="446" r="4" fill="#ffffff" />
+
+    <!-- Left Orbital Electron Bead -->
+    <circle cx="168" cy="256" r="11" fill="url(#sphereBlueNode)" filter="url(#cyanNeonGlow)" />
+    <circle cx="166" cy="253" r="3" fill="#ffffff" />
+  </g>
+
+  <!-- DIAGONAL 2: NEON GREEN ORBIT (tilted +38 deg) -->
+  <g transform="rotate(38 256 256)">
+    <!-- Outer Glow Tube -->
+    <ellipse cx="256" cy="256" rx="88" ry="194" fill="none" stroke="url(#neonGreenTrack)" stroke-width="7" filter="url(#greenNeonGlow)" />
+    <!-- Bright Center Filament Core -->
+    <ellipse cx="256" cy="256" rx="88" ry="194" fill="none" stroke="#ffffff" stroke-width="2.5" />
+
+    <!-- Spherical Electron Nodes on Green Track -->
+    <!-- Top Electron -->
+    <circle cx="256" cy="62" r="15" fill="url(#sphereGreenNode)" filter="url(#greenNeonGlow)" />
+    <circle cx="256" cy="62" r="14" fill="none" stroke="#dcfce7" stroke-width="1.5" />
+    <circle cx="252" cy="58" r="4" fill="#ffffff" />
+
+    <!-- Bottom Electron -->
+    <circle cx="256" cy="450" r="15" fill="url(#sphereGreenNode)" filter="url(#greenNeonGlow)" />
+    <circle cx="256" cy="450" r="14" fill="none" stroke="#dcfce7" stroke-width="1.5" />
+    <circle cx="252" cy="446" r="4" fill="#ffffff" />
+
+    <!-- Right Orbital Electron Bead -->
+    <circle cx="344" cy="256" r="11" fill="url(#sphereGreenNode)" filter="url(#greenNeonGlow)" />
+    <circle cx="342" cy="253" r="3" fill="#ffffff" />
+  </g>
+
+  <!-- CENTRAL NUCLEUS: RADIANT MULTI-LAYERED PLASMA SPHERE CLUSTER -->
+  <g filter="url(#coreGlowBloom)">
+    <!-- Outer Magenta Flare Field -->
+    <circle cx="256" cy="256" r="72" fill="url(#hotNucleusGrad)" opacity="0.95" />
+
+    <!-- Overlapping Glowing Plasma Nodes Cluster -->
+    <circle cx="232" cy="236" r="28" fill="#f43f5e" opacity="0.9" />
+    <circle cx="280" cy="236" r="28" fill="#fb923c" opacity="0.9" />
+    <circle cx="236" cy="276" r="26" fill="#e11d48" opacity="0.9" />
+    <circle cx="276" cy="276" r="26" fill="#ec4899" opacity="0.9" />
+    <circle cx="256" cy="222" r="24" fill="#fbbf24" opacity="0.9" />
+    <circle cx="256" cy="290" r="24" fill="#d946ef" opacity="0.9" />
+
+    <!-- Central Super-Heated White Spark Core -->
+    <circle cx="256" cy="256" r="34" fill="#ffffff" />
+    <circle cx="256" cy="256" r="20" fill="#fffbeb" />
+
+    <!-- Radiant Lens Flares -->
+    <ellipse cx="256" cy="256" rx="64" ry="4" fill="#ffffff" opacity="0.95" />
+    <ellipse cx="256" cy="256" rx="4" ry="64" fill="#ffffff" opacity="0.95" />
+    <ellipse cx="256" cy="256" rx="46" ry="3.5" fill="#ffffff" transform="rotate(45 256 256)" opacity="0.9" />
+    <ellipse cx="256" cy="256" rx="46" ry="3.5" fill="#ffffff" transform="rotate(-45 256 256)" opacity="0.9" />
+  </g>
+
+  <!-- Tiny Red Laser Node on the Right Ring -->
+  <circle cx="454" cy="346" r="4.5" fill="#ef4444" filter="url(#coreGlowBloom)" />
+</svg>
